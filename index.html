@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Денталь-А — стоматология в Воронеже</title>
+<meta name="description" content="Денталь-А — стоматологическая клиника в Воронеже. Терапия, ортопедия, ортодонтия, хирургия и детская стоматология. 17 лет практики, фиксированные цены.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF6EE; --card:#FFFFFF; --ink:#211B17; --ink-soft:rgba(33,27,23,.68);
+    --coral:#C81E5C; --coral-dark:#98123F; --coral-tint:#F5D3E1;
+    --pine:#12331F; --pine-tint:#D7E5DB; --line:rgba(33,27,23,.14);
+    --r-lg:28px; --r-md:18px; --r-sm:10px;
+    --shadow:0 18px 40px -20px rgba(33,27,23,.28);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);font-family:'Manrope',sans-serif;font-size:16px;line-height:1.5;
+    --dot-op:.05;
+    background-color:var(--bg);
+    background-image:radial-gradient(rgba(33,27,23,var(--dot-op)) 1.4px, transparent 1.4px);
+    background-size:24px 24px;
+  }
+  .bg-blob{position:absolute;z-index:0;border-radius:44% 56% 60% 40%/48% 42% 58% 52%;filter:blur(46px);pointer-events:none}
+  section{position:relative}
+  section>.wrap{position:relative;z-index:1}
+  h1,h2,h3{font-family:'Newsreader',serif;font-weight:500;margin:0;letter-spacing:-.01em}
+  a{color:var(--coral-dark)} a:hover{color:var(--coral)}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+  section{padding:96px 0}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  .kicker{font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--coral-dark)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid transparent;transition:transform .2s ease,background .2s ease,color .2s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--coral);color:#FFF6EE}
+  .btn-primary:hover{background:var(--coral-dark);color:#FFF6EE}
+  .btn-ghost{border-color:var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--bg)}
+
+  header.site{position:sticky;top:0;z-index:70;background:rgba(247,241,230,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);transition:background .4s cubic-bezier(.16,1,.3,1),border-color .4s cubic-bezier(.16,1,.3,1)}
+  header.site.menu-open{background:var(--coral);border-color:transparent}
+  .brand{font-family:'Newsreader',serif;font-weight:600;font-style:italic;font-size:22px;margin-right:auto;transition:color .4s cubic-bezier(.16,1,.3,1)}
+  header.site.menu-open .brand{color:#FFF3E9}
+  header.site.menu-open .burger span{background:#FFF3E9}
+  nav.nav{display:flex;align-items:center;gap:28px;padding:20px 0}
+  header.site .wrap{padding-left:48px;padding-right:48px}
+  nav.nav a{color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:600}
+  nav.nav a:hover{color:var(--coral-dark)}
+  nav.nav a.btn-primary{color:#FFF6EE}
+  nav.nav a.btn-primary:hover{color:#FFF6EE}
+  nav.nav a.btn-ghost:hover{color:#FFF6EE}
+
+  .burger{display:none;width:44px;height:44px;border:none;background:transparent;cursor:pointer;flex:none;position:relative;z-index:60}
+  .burger span{position:absolute;left:8px;right:8px;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .3s ease,background .4s cubic-bezier(.16,1,.3,1)}
+  .burger span:nth-child(1){top:15px}
+  .burger span:nth-child(2){top:22px}
+  .burger span:nth-child(3){top:29px}
+  .burger.open span{background:#FFF3E9}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .mobile-menu{position:fixed;inset:0;z-index:55;background:var(--coral);opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .4s ease,transform .4s cubic-bezier(.16,1,.3,1),visibility 0s linear .4s;display:flex;flex-direction:column;overflow-y:auto;padding:96px 32px 32px}
+  .mobile-menu-inner{margin:auto 0;position:relative;z-index:1}
+  .mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .4s ease,transform .4s cubic-bezier(.16,1,.3,1)}
+  .mobile-menu .blob{position:absolute}
+  .mobile-menu .blob-m1{width:220px;height:200px;top:-60px;right:-60px;background:rgba(255,243,233,.14)}
+  .mobile-menu .blob-m2{width:180px;height:160px;bottom:-40px;left:-50px;background:rgba(255,243,233,.1)}
+  .mobile-menu-links{position:relative;z-index:1;display:flex;flex-direction:column;gap:6px}
+  .mobile-menu-links a{font-family:'Newsreader',serif;font-style:italic;font-weight:500;font-size:clamp(32px,11vw,48px);color:#FFF3E9;text-decoration:none;opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+  .mobile-menu.open .mobile-menu-links a{opacity:1;transform:translateY(0)}
+  .mobile-menu.open .mobile-menu-links a:nth-child(1){transition-delay:.08s}
+  .mobile-menu.open .mobile-menu-links a:nth-child(2){transition-delay:.15s}
+  .mobile-menu.open .mobile-menu-links a:nth-child(3){transition-delay:.22s}
+  .mobile-menu.open .mobile-menu-links a:nth-child(4){transition-delay:.29s}
+  .mobile-menu-cta{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;margin-top:36px;opacity:0;transform:translateY(16px);transition:opacity .5s ease .34s,transform .5s ease .34s}
+  .mobile-menu.open .mobile-menu-cta{opacity:1;transform:translateY(0)}
+  .mobile-menu-cta .btn-primary{background:#FFF3E9;color:var(--coral-dark)}
+  .mobile-menu-cta .btn-ghost{border-color:#FFF3E9;color:#FFF3E9}
+  .mobile-menu-smile{position:relative;z-index:1;width:120px;margin-top:28px;opacity:0;transition:opacity .5s ease .4s}
+  .mobile-menu.open .mobile-menu-smile{opacity:1}
+
+  .hero{padding-top:76px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .hero h1{font-size:clamp(38px,5.6vw,68px);line-height:1.06;margin-top:20px}
+  .hero h1 em{font-style:italic;color:var(--coral-dark);position:relative}
+  .smile-mark{width:100%;max-width:340px;height:auto;display:block;margin:14px 0 0}
+  .smile-mark path{stroke-dasharray:340;stroke-dashoffset:340;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.7,.2,1)}
+  .smile-mark.in path{stroke-dashoffset:0}
+  .hero p.lead{max-width:48ch;font-size:18px;color:var(--ink-soft);margin-top:22px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+  .hero-meta{display:flex;gap:26px;margin-top:28px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap}
+  .hero-photo-wrap{position:relative}
+  .blob{position:absolute;border-radius:44% 56% 60% 40%/48% 42% 58% 52%;background:var(--pine-tint);z-index:0}
+  .blob-1{width:88%;height:92%;top:-6%;left:8%}
+  .blob-2{width:40%;height:40%;bottom:-8%;left:-8%;background:var(--coral-tint)}
+  .hero-photo{position:relative;z-index:1;display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:44% 56% 60% 40%/48% 42% 58% 52%;overflow:hidden;box-shadow:var(--shadow)}
+
+  .stat-band{padding:40px 0}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media (max-width:760px){.stat-row{grid-template-columns:1fr 1fr}}
+  .stat-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:26px 22px;transform:rotate(var(--tilt,0deg));transition:transform .3s ease}
+  .stat-card:hover{transform:rotate(0deg) translateY(-4px)}
+  .stat-card:nth-child(1){--tilt:-1.4deg}
+  .stat-card:nth-child(2){--tilt:1.1deg}
+  .stat-card:nth-child(3){--tilt:-1deg}
+  .stat-card:nth-child(4){--tilt:1.4deg}
+  .stat-num{font-family:'Newsreader',serif;font-style:italic;font-size:34px;color:var(--pine)}
+  .stat-label{font-size:13px;color:var(--ink-soft);margin-top:4px}
+
+  .section-head{max-width:60ch}
+  .section-head h2{font-size:clamp(28px,3.6vw,44px)}
+  .section-head p{color:var(--ink-soft);font-size:16px;margin-top:14px}
+
+  .svc-list{display:flex;flex-direction:column;margin-top:52px}
+  .svc-row{display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:26px;padding:30px 0;border-top:1px solid var(--line)}
+  .svc-row:last-child{border-bottom:1px solid var(--line)}
+  .svc-num{font-family:'Newsreader',serif;font-style:italic;font-size:30px;color:var(--coral-tint);-webkit-text-stroke:1.4px var(--coral-dark)}
+  .svc-body h3{font-size:22px;font-weight:500}
+  .svc-body p{margin:6px 0 0;color:var(--ink-soft);font-size:14.5px;max-width:52ch}
+  .svc-price{font-family:'Newsreader',serif;font-style:italic;font-size:20px;color:var(--pine);white-space:nowrap}
+  @media (max-width:640px){.svc-row{grid-template-columns:48px 1fr;}.svc-price{grid-column:2;margin-top:6px}}
+
+  .promo{background:var(--pine);color:#F4EFE4;border-radius:var(--r-lg);padding:56px 48px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+  .promo h2{font-size:clamp(26px,3.4vw,38px);color:#F4EFE4}
+  .promo .tag{display:inline-block;background:rgba(244,239,228,.14);color:#F4EFE4;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .promo p{color:rgba(244,239,228,.78);max-width:42ch;margin-top:12px}
+  .promo .btn-primary{background:var(--coral)}
+
+  .process-wrap{position:relative;margin-top:60px}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  @media (max-width:1000px){.process-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:760px){.process-grid{grid-template-columns:1fr}}
+  .step{position:relative}
+  .step-dot{position:absolute;top:-14px;left:-14px;width:40px;height:40px;border-radius:50%;background:var(--card);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Newsreader',serif;font-style:italic;font-size:15px;transition:.4s;z-index:2;box-shadow:var(--shadow)}
+  .step.in .step-dot{border-color:var(--coral);background:var(--coral);color:#fff}
+  .step-card{height:100%;background:var(--card);border-radius:var(--r-md);padding:30px 26px 26px;box-shadow:var(--shadow);transform:rotate(var(--tilt,0deg));transition:transform .3s ease}
+  .step-card:hover{transform:rotate(0deg) translateY(-3px)}
+  .step:nth-child(odd) .step-card{--tilt:-0.8deg}
+  .step:nth-child(even) .step-card{--tilt:0.8deg}
+  .step-icon{width:36px;height:36px;border-radius:50%;background:var(--coral-tint);color:var(--coral-dark);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+  .step-icon svg{width:18px;height:18px}
+  .step-card h3{font-size:20px;font-weight:500}
+  .step-card p{margin:6px 0 0;color:var(--ink-soft);font-size:15px}
+
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+  @media (max-width:920px){.quotes{grid-template-columns:1fr 1fr}}
+  @media (max-width:640px){.quotes{grid-template-columns:1fr}}
+  .quote{position:relative;overflow:hidden;display:flex;flex-direction:column;height:100%;background:var(--card);border-radius:var(--r-lg);padding:32px 26px 26px;box-shadow:var(--shadow);transform:rotate(var(--tilt,0deg));transition:transform .3s ease}
+  .quote:hover{transform:rotate(0deg) translateY(-4px)}
+  .quote:nth-child(1){--tilt:-1deg}
+  .quote:nth-child(2){--tilt:0.9deg}
+  .quote:nth-child(3){--tilt:-0.7deg}
+  .quote::before{content:'\201C';position:absolute;top:-18px;right:14px;font-family:'Newsreader',serif;font-style:italic;font-size:120px;color:var(--coral-tint);z-index:0;line-height:1}
+  .quote .stars{position:relative;z-index:1;color:var(--coral);letter-spacing:3px}
+  .quote p{position:relative;z-index:1;font-family:'Newsreader',serif;font-style:italic;font-size:19px;line-height:1.45;margin:14px 0 0}
+  .quote .meta{position:relative;z-index:1;margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:10px}
+  .quote-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Newsreader',serif;font-style:italic;font-weight:600;font-size:15px;color:#fff;flex:none}
+  .quote:nth-child(odd) .quote-avatar{background:var(--pine)}
+  .quote:nth-child(even) .quote-avatar{background:var(--coral)}
+  .quote .meta-text{display:flex;flex-direction:column;line-height:1.25}
+  .quote .meta-name{font-size:13.5px;font-weight:700}
+  .quote .meta-tag{font-size:12px;color:var(--ink-soft)}
+
+  .faq-item{border-top:1px solid var(--line);padding:4px 0}
+  .faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Newsreader',serif;font-size:20px;font-weight:500;color:var(--ink);padding:20px 0;text-align:left}
+  .faq-icon{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:var(--coral-dark);transition:transform .45s cubic-bezier(.16,1,.3,1),border-color .3s ease,background .3s ease,color .3s ease}
+  .faq-item.open .faq-icon{transform:rotate(135deg);border-color:var(--coral);background:var(--coral);color:#fff}
+  .faq-a-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.16,1,.3,1)}
+  .faq-item.open .faq-a-wrap{grid-template-rows:1fr}
+  .faq-a-inner{overflow:hidden}
+  .faq-a{margin:0 0 20px;color:var(--ink-soft);max-width:64ch;opacity:0;transform:translateY(-6px);transition:opacity .35s ease,transform .35s ease}
+  .faq-item.open .faq-a{opacity:1;transform:none;transition:opacity .4s ease .1s,transform .4s ease .1s}
+
+  .final{background:var(--coral);color:#FFF3E9;border-radius:var(--r-lg);padding:64px 48px;text-align:center}
+  .final h2{color:#FFF3E9;font-size:clamp(30px,4vw,46px);max-width:20ch;margin:0 auto}
+  .final p{color:rgba(255,243,233,.85);max-width:44ch;margin:16px auto 0}
+  .final .cta-row{justify-content:center}
+  .final .btn-ghost{border-color:#FFF3E9;color:#FFF3E9}
+  .final .btn-ghost:hover{background:#FFF3E9;color:var(--coral-dark)}
+  .final .btn-primary{background:#FFF3E9;color:var(--coral-dark)}
+  .final .btn-primary:hover{background:#fff;color:var(--coral-dark)}
+  .final .smile-mark{width:140px;margin:18px auto 0}
+
+  [data-palette="cool"]{--coral:#2F7A82;--coral-dark:#215A60;--coral-tint:#D9ECEC;--pine:#4B3F82;--pine-tint:#E7E2F2}
+  [data-palette="bold"]{--coral:#C81E5C;--coral-dark:#98123F;--coral-tint:#F5D3E1;--pine:#12331F;--pine-tint:#D7E5DB}
+
+  [data-energy="calm"] .bg-blob{opacity:0!important}
+  [data-energy="calm"] .stat-card{--tilt:0deg!important}
+  [data-energy="calm"] .smile-mark{opacity:0!important}
+  [data-energy="calm"] body{--dot-op:.015}
+
+  [data-type="modern"] h1,[data-type="modern"] h2,[data-type="modern"] h3{font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.02em;font-style:normal}
+  [data-type="modern"] .hero h1 em{font-style:normal;font-weight:800;text-decoration:underline;text-decoration-color:var(--coral);text-decoration-thickness:4px;text-underline-offset:8px;color:var(--coral-dark)}
+  [data-type="modern"] .stat-num,[data-type="modern"] .svc-num,[data-type="modern"] .step-dot,[data-type="modern"] .quote p,[data-type="modern"] .brand{font-family:'Manrope',sans-serif;font-style:normal;font-weight:800}
+  [data-type="modern"] .svc-num{-webkit-text-stroke:0;color:var(--coral)}
+
+  footer.site{padding:48px 0;font-size:13.5px;color:var(--ink-soft)}
+  .footer-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .footer-grid .brand{margin-bottom:6px}
+
+  @media (max-width:900px){
+    .promo{padding:40px 32px}
+    .final{padding:48px 28px}
+  }
+  @media (max-width:680px){
+    .wrap{padding:0 20px}
+    header.site .wrap{padding-left:24px;padding-right:24px}
+    section{padding:56px 0}
+    .hero{padding-top:36px}
+    nav.nav{gap:10px;padding:14px 0;flex-wrap:nowrap;justify-content:space-between}
+    nav.nav a:not(.btn){display:none}
+    nav.nav .btn{display:none}
+    .burger{display:block}
+    .brand{font-size:19px}
+    .hero-grid{gap:32px}
+    .hero p.lead{font-size:16px}
+    .hero-meta{gap:14px;font-size:12.5px}
+    .stat-row{gap:12px}
+    .stat-card{padding:18px 16px}
+    .stat-num{font-size:26px}
+    .section-head h2{font-size:clamp(24px,7vw,32px)}
+    .svc-row{gap:16px;padding:22px 0}
+    .svc-body h3{font-size:19px}
+    .promo,.final{border-radius:var(--r-md)}
+    .promo{padding:32px 22px;flex-direction:column;align-items:flex-start}
+    .promo .btn{width:100%;justify-content:center}
+    .final{padding:40px 22px}
+    .process-wrap{margin-top:36px}
+    .step-card{padding:24px 20px 20px}
+    .step-dot{width:32px;height:32px;font-size:12px;top:-10px;left:-10px}
+    .cta-row{flex-direction:column;align-items:stretch}
+    .cta-row .btn{justify-content:center}
+  }
+  @media (max-width:420px){
+    .stat-row{grid-template-columns:1fr 1fr}
+    .hero h1{font-size:clamp(30px,9vw,40px)}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav wrap">
+    <span class="brand">Денталь-А</span>
+    <a href="#services">Услуги</a>
+    <a href="#process">Как проходит</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#faq">Вопросы</a>
+    <a class="btn btn-primary" href="https://wa.me/79525500022" style="margin-left:auto;padding:10px 20px">WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+79525500022" style="padding:10px 20px">+7 (952) 550-00-22</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="blob blob-m1"></div>
+  <div class="blob blob-m2"></div>
+  <div class="mobile-menu-inner">
+    <nav class="mobile-menu-links">
+      <a href="#services">Услуги</a>
+      <a href="#process">Как проходит</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="mobile-menu-cta">
+      <a class="btn btn-primary" href="https://wa.me/79525500022">Написать в WhatsApp</a>
+      <a class="btn btn-ghost" href="tel:+79525500022">Позвонить: +7 (952) 550-00-22</a>
+    </div>
+    <svg class="mobile-menu-smile" viewBox="0 0 200 40" fill="none">
+      <path d="M4 6C40 40 160 40 196 6" stroke="#FFF3E9" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<section class="hero" style="overflow:hidden">
+  <div class="bg-blob" style="width:420px;height:380px;top:-140px;left:-140px;background:var(--coral-tint);opacity:.7"></div>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="kicker">Денталь-А · Воронеж · 17 лет практики</span>
+      <h1>Лечим зубы так,<br>чтобы <em>хотелось</em> улыбаться</h1>
+      <svg class="smile-mark" viewBox="0 0 200 40" fill="none">
+        <path d="M4 6C40 40 160 40 196 6" stroke="#C81E5C" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <p class="lead">Терапия, ортопедия, ортодонтия и хирургия — без очередей, без сюрпризов в цене и без страха перед креслом. Стоимость фиксируется на первом приёме и не меняется в процессе.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/79525500022">Написать в WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:+79525500022">Позвонить: +7 (952) 550-00-22</a>
+      </div>
+      <div class="hero-meta">
+        <span>★ 4,9 из 5 · 167 оценок</span>
+        <span>ул. Пеше-Стрелецкая, 91</span>
+      </div>
+    </div>
+    <div class="reveal hero-photo-wrap">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <img class="hero-photo" src="images/hero-photo.webp" width="607" height="910" alt="Приём в клинике Денталь-А" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="stat-band" style="overflow:hidden">
+  <div class="bg-blob" style="width:300px;height:260px;top:-60px;right:-80px;background:var(--pine-tint);opacity:.8"></div>
+  <div class="wrap">
+    <div class="stat-row reveal">
+      <div class="stat-card"><div class="stat-num">17 лет</div><div class="stat-label">практики в Воронеже</div></div>
+      <div class="stat-card"><div class="stat-num">4,9 / 5</div><div class="stat-label">167 оценок пациентов</div></div>
+      <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">направлений лечения</div></div>
+      <div class="stat-card"><div class="stat-num">08–20</div><div class="stat-label">Пн–Пт, приём звонков</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="overflow:hidden">
+  <div class="bg-blob" style="width:380px;height:340px;top:8%;left:-140px;background:var(--coral-tint);opacity:.65"></div>
+  <div class="wrap">
+    <div class="section-head reveal" style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;max-width:none;flex-wrap:wrap">
+      <div style="max-width:60ch">
+        <span class="kicker">Услуги</span>
+        <h2 style="margin-top:10px">Всё, что нужно вашей улыбке — под одной крышей</h2>
+        <p>Полный цикл стоматологической помощи: от осмотра до сложного протезирования и имплантации.</p>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/79525500022" style="flex:none">Записаться на приём</a>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row reveal">
+        <span class="svc-num">01</span>
+        <div class="svc-body"><h3>Терапия</h3><p>Кариес, каналы, гигиена и отбеливание</p></div>
+        <span class="svc-price">от 5 000 ₽</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">02</span>
+        <div class="svc-body"><h3>Ортопедия</h3><p>Коронки, виниры, протезы, импланты NDI</p></div>
+        <span class="svc-price">от 15 500 ₽</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">03</span>
+        <div class="svc-body"><h3>Ортодонтия</h3><p>Брекеты и элайнеры для ровной улыбки</p></div>
+        <span class="svc-price">от 80 000 ₽</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">04</span>
+        <div class="svc-body"><h3>Хирургия</h3><p>Удаление и имплантация NDI (Германия)</p></div>
+        <span class="svc-price">от 3 000 ₽</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">05</span>
+        <div class="svc-body"><h3>Детская стоматология</h3><p>Молочные зубы: лечение, удаление, гигиена</p></div>
+        <span class="svc-price">от 2 000 ₽</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">06</span>
+        <div class="svc-body"><h3>Проф. гигиена</h3><p>Комплексная чистка и уход за полостью рта</p></div>
+        <span class="svc-price">от 5 000 ₽</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="promo">
+  <div class="wrap">
+    <div class="promo reveal">
+      <div>
+        <span class="tag">Акция месяца</span>
+        <h2 style="margin-top:12px">Отбеливание зубов — от 27 000 ₽</h2>
+        <p>Заметный результат за один визит. Количество мест по акции ограничено.</p>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/79525500022">Записаться со скидкой</a>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Как проходит лечение</span>
+      <h2 style="margin-top:10px">Четыре шага к результату</h2>
+    </div>
+    <div class="process-wrap">
+      <div class="process-grid">
+      <div class="step" data-step="0">
+        <div class="step-dot">01</div>
+        <div class="step-card">
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>Осмотр и консультация</h3>
+          <p>1 000 ₽ — точная диагностика и понятный план лечения на первом приёме.</p>
+        </div>
+      </div>
+      <div class="step" data-step="1">
+        <div class="step-dot">02</div>
+        <div class="step-card">
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 9l2 2 4-4"/></svg></div>
+          <h3>Согласование плана</h3>
+          <p>Фиксируем стоимость до начала лечения — без сюрпризов и скрытых доплат.</p>
+        </div>
+      </div>
+      <div class="step" data-step="2">
+        <div class="step-dot">03</div>
+        <div class="step-card">
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 3-3 5-3 8a3 3 0 0 0 6 0c0-3-1-5-3-8z"/><path d="M9 15l-1 6M15 15l1 6"/></svg></div>
+          <h3>Лечение</h3>
+          <p>Работаем аккуратно: анестезия и микроскоп по показаниям, современные материалы.</p>
+        </div>
+      </div>
+      <div class="step" data-step="3">
+        <div class="step-dot">04</div>
+        <div class="step-card">
+          <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L14.5 10"/></svg></div>
+          <h3>Гарантия и контроль</h3>
+          <p>Плановые осмотры и гарантия на все виды работ — следим за результатом.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="overflow:hidden">
+  <div class="bg-blob" style="width:340px;height:300px;bottom:-100px;right:-120px;background:var(--pine-tint);opacity:.7"></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Отзывы</span>
+      <h2 style="margin-top:10px">Что говорят пациенты</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal">
+        <span class="stars">★★★★★</span>
+        <p>«Очень понравилось у доктора Ксении Лозовой на проф гигиене. Всё быстро, безболезненно, идеально красиво после.»</p>
+        <div class="meta">
+          <div class="quote-avatar">Е</div>
+          <div class="meta-text"><span class="meta-name">Елизавета А.</span><span class="meta-tag">проф. гигиена</span></div>
+        </div>
+      </div>
+      <div class="quote reveal">
+        <span class="stars">★★★★★</span>
+        <p>«Посещаем постоянно всей семьёй. Лечили, удаляли, ставили коронки. Отдельная благодарность Попову Константину.»</p>
+        <div class="meta">
+          <div class="quote-avatar">Е</div>
+          <div class="meta-text"><span class="meta-name">Екатерина Шевцова</span><span class="meta-tag">семейный приём</span></div>
+        </div>
+      </div>
+      <div class="quote reveal">
+        <span class="stars">★★★★★</span>
+        <p>«Чуткий, внимательный и очень профессиональный врач, прекрасно провела процедуру.»</p>
+        <div class="meta">
+          <div class="quote-avatar">A</div>
+          <div class="meta-text"><span class="meta-name">Anna Zhavoronkova</span><span class="meta-tag">проф. гигиена</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:760px">
+    <div class="section-head reveal">
+      <span class="kicker">Вопросы</span>
+      <h2 style="margin-top:10px">То, что обычно спрашивают</h2>
+    </div>
+    <div style="margin-top:20px">
+      <div class="faq-item reveal open">
+        <button class="faq-q">Больно ли лечить зубы?<span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Используем современные анестетики и щадящие протоколы — большинство процедур проходят без боли и дискомфорта.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Что делать, если зуб болит прямо сейчас?<span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Звоните или пишите в WhatsApp — при острой боли принимаем в день обращения.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Принимаете ли вы детей?<span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Да, у нас отдельное направление детской стоматологии: от лечения молочных зубов до гигиены полости рта.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Сколько будет стоить лечение?<span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Точную стоимость озвучим после осмотра — она фиксируется в плане лечения и не меняется в процессе.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Как записаться на приём?<span class="faq-icon">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Проще всего — в WhatsApp по телефону +7 (952) 550-00-22, либо позвоните напрямую.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" style="overflow:hidden">
+  <div class="bg-blob" style="width:320px;height:280px;top:-100px;left:-100px;background:var(--coral-tint);opacity:.7"></div>
+  <div class="wrap">
+    <div class="final reveal">
+      <h2>Готовы к здоровой улыбке?</h2>
+      <svg class="smile-mark" viewBox="0 0 200 40" fill="none">
+        <path d="M4 6C40 40 160 40 196 6" stroke="#FFF3E9" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <p>Напишите нам в WhatsApp — ответим в течение дня и подберём удобное время приёма.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/79525500022">Написать в WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:+79525500022">+7 (952) 550-00-22</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand" style="font-family:'Newsreader',serif;font-style:italic;font-size:19px;color:var(--ink)">Денталь-А</div>
+      <div>Воронеж, ул. Пеше-Стрелецкая, 91</div>
+      <div>Пн–Пт 08:00–20:00, Сб–Вс выходной</div>
+    </div>
+    <div>
+      <div>+7 (952) 550-00-22</div>
+      <div>WhatsApp: +7 (952) 550-00-22</div>
+      <div>VK: vk.ru/dental.a.clinic</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const smileDrawIo = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:0.4});
+document.querySelectorAll('.smile-mark').forEach(smile=>{
+  io.observe(smile);
+  smileDrawIo.observe(smile);
+});
+
+const steps = document.querySelectorAll('.step');
+const stepIo = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:0.5});
+steps.forEach(s=>stepIo.observe(s));
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>{
+    const willOpen = !item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>{ if(o!==item) o.classList.remove('open'); });
+    item.classList.toggle('open', willOpen);
+  });
+});
+
+const burger = document.getElementById('burger');
+const mmenu = document.getElementById('mobile-menu');
+const siteHeader = document.querySelector('header.site');
+function closeMenu(){
+  burger.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+  mmenu.classList.remove('open'); document.body.style.overflow='';
+  siteHeader.classList.remove('menu-open');
+}
+burger.addEventListener('click',()=>{
+  const open = mmenu.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open ? 'true':'false');
+  document.body.style.overflow = open ? 'hidden' : '';
+  siteHeader.classList.toggle('menu-open', open);
+});
+mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+</script>
+</body>
+</html>
